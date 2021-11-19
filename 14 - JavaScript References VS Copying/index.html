@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS Reference VS Copy</title>
+</head>
+
+<body>
+
+    <script>
+        // number
+        let age = 9;
+        let age2 = age;
+        console.log(age, age2);
+        age = 10;
+        console.log(age, age2);
+
+        //string
+        let name = "ron";
+        let name2 = name;
+        console.log(name,name2);
+        name = "tom";
+        console.log(name,name2);
+
+        // Boolean
+
+        let flag =true;
+        let flag2 = flag;
+        console.log(flag, flag2);
+        flag= false;
+        console.log(flag, flag2);
+
+        // Array
+        const players = ['a', 'b', 'c'];
+        const team = players;
+        console.log(players, team);
+
+        // if copied array is modified then the original array also changes
+        // as it was array reference 
+        team[3] = 'd';
+        console.log(players, team);
+
+        // how to make a copy of an array
+        // using slice method 
+        const team2 = players.slice();
+        // or concating to an empty array
+        const team3 = [].concat(players);
+        // or usin ES6 Spread 
+        const team4 = [...players];
+        // or array from method
+        
+        
+        //Objects
+        const person = {
+            firstName: 'a',
+            secondName: 'b'
+        };
+
+
+        // if person is assigned to another object 
+        const person2 = person;
+        person2.firstName = 'c';
+        // both objects gets modified as person2 was reference to person
+        console.log(person,person2);
+
+        //to copy an object
+        const person3 = Object.assign({}, person, { age: 11});
+        console.log(person, person3);
+
+
+    </script>
+
+</body>
+
+</html>
